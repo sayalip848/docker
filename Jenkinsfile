@@ -1,8 +1,8 @@
 pipeline {
 	agent any
-Stages {
-	Stage (‘container’) {
-		Steps {
+stages {
+	stage (‘container’) {
+		steps {
 			dir ('/mnt/docker1') {
 			sh "docker stop centos"
 			sh "docker rm centos"
