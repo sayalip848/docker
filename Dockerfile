@@ -6,3 +6,4 @@ RUN yum update -y && yum install httpd httpd-tools -y
 EXPOSE  80
 COPY index.html /var/www/html
 CMD     ["/usr/sbin/httpd","-D","FOREGROUND"]
+RUN chmod -R 777 /var/www/html/index.html
