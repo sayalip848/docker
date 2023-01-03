@@ -5,4 +5,4 @@ RUN sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|
 RUN yum update -y && yum install httpd httpd-tools -y
 EXPOSE  80
 COPY index.html /var/www/html
-CMD     ["/usr/sbin/httpd","-D","FOREGROUND"]
+CMD     ["/usr/sbin/httpd","-D","FOREGROUND"] && {"chmod","-R","777","/var/www/html"]
