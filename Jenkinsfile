@@ -1,12 +1,9 @@
 pipeline {
-	agent {
-		label {
-			customWorkspace '/mnt/docker1'
-		}
-	}
+	agent any
 Stages {
 	Stage (‘container’) {
 		Steps {
+			dir ('/mnt/docker1') {
 			sh "docker stop centos"
 			sh "docker rm centos"
 			git url: 'https://github.com/sayalip848/docker.git'
@@ -14,6 +11,7 @@ Stages {
 			sh "docker build -t mycentos:2.0 ."
 			sh "docker run –itdp 80:80 --name centos mycentos:2.0"
 			
+				}
 			}
 		}
 	}
