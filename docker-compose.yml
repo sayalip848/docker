@@ -1,0 +1,8 @@
+version: '3'
+services:
+  22Q1:
+    build:
+      context: .
+    image: 22Q1image
+    ports:
+      - '81:80'
